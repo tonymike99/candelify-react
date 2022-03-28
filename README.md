@@ -1,3 +1,5 @@
-## E-Commerce Backend
+# [Candelify](https://candelify-react.netlify.app/)
 
-This folder contains the Mock Backend created for E-Commerce App. It contains different API end-points and database configuration for building E-Commerce; so that you can focus on building Frontend.
+## Introduction
+
+Candelify is a one-stop portal for all your fashion needs.
