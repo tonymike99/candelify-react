@@ -144,6 +144,33 @@ i {
   gap: 2rem;
 }
 
+/* **************************************************************************************************** */
+
+/* PRODUCTS PAGE */
+
+.filter-header,
+.filter-price-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-price,
+.filter-category,
+.filter-rating,
+.filter-sort,
+.filter-others {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.price-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
 /* PROJECT SPECIFIC COMMON STYLES END */
 
 /* **************************************************************************************************** */
