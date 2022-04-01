@@ -1,8 +1,9 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { useCart, useTheme } from "../../hooks/context/index";
+import { useWishlist, useCart, useTheme } from "../../hooks/context/index";
 
 function Header() {
+  const { wishlistProducts } = useWishlist();
   const { cartProducts } = useCart();
   const { theme, setTheme } = useTheme();
 
@@ -36,7 +37,9 @@ function Header() {
           <li>
             <Link to="/wishlist" className="styled-link-2 relative">
               <i className="fas fa-heart fa-lg" />
-              <div className="badge success badge-outside-top-right">0</div>
+              <div className="badge success badge-outside-top-right">
+                {wishlistProducts.length}
+              </div>
             </Link>
           </li>
           <li>
