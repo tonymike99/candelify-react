@@ -1,9 +1,22 @@
-import { useCart } from "../hooks/context/index";
+import { useWishlist, useCart } from "../hooks/context/index";
 
 function CardStretched({ productData }) {
   const { name, oldPrice, price, discountPercent, quantity, image } =
     productData;
+  const { wishlistProducts, setWishlistProducts } = useWishlist();
   const { cartProducts, setCartProducts } = useCart();
+
+  const handlerSaveToWishlist = (productData) => {
+    // Remove product from cart
+    setCartProducts(
+      cartProducts.filter((product) => product._id !== productData._id)
+    );
+
+    // Add product to wishlist
+    if (wishlistProducts.includes(productData))
+      setWishlistProducts([...wishlistProducts]);
+    else setWishlistProducts([...wishlistProducts, productData]);
+  };
 
   const handlerRemoveFromCart = (id) => {
     // Remove product from cart
@@ -65,7 +78,10 @@ function CardStretched({ productData }) {
           </p>
         </div>
         <div className="card-footer">
-          <button className="btn btn-secondary-outline btn-width-100">
+          <button
+            className="btn btn-secondary-outline btn-width-100"
+            onClick={() => handlerSaveToWishlist(productData)}
+          >
             Save to wishlist
           </button>
           <button

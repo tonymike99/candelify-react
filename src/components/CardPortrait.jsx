@@ -1,4 +1,4 @@
-import { useCart } from "../hooks/context/index";
+import { useWishlist, useCart } from "../hooks/context/index";
 
 function CardPortrait({ productData }) {
   const {
@@ -11,9 +11,32 @@ function CardPortrait({ productData }) {
     discountPercent,
     image,
   } = productData;
+  const { wishlistProducts, setWishlistProducts } = useWishlist();
   const { cartProducts, setCartProducts } = useCart();
 
+  const handlerAddToWishlist = (product) => {
+    // If product is not there in wishlist, then add product to wishlist
+    if (!wishlistProducts.includes(product)) {
+      setWishlistProducts([...wishlistProducts, product]);
+    }
+  };
+
+  const handlerRemoveFromWishlist = (id) => {
+    // If product is there in wishlist, then remove product from wishlist
+    setWishlistProducts(
+      wishlistProducts.filter((product) => product._id !== id)
+    );
+  };
+
   const handlerAddToCart = (product) => {
+    // If product is there in wishlist, then remove the product from wishlist
+    if (wishlistProducts.includes(product))
+      setWishlistProducts(
+        wishlistProducts.filter(
+          (currentProduct) => currentProduct._id !== product._id
+        )
+      );
+
     // If product is there in cart, then update the quantity
     const isProductAlreadyInCart = cartProducts.find((currentProduct) => {
       if (currentProduct._id === product._id) {
@@ -39,11 +62,20 @@ function CardPortrait({ productData }) {
     <div className="card relative text-center">
       <button className="btn round btn-light btn-floating badge badge-lg badge-inside-top-right">
         <i
-          className="fas fa-heart fa-lg"
+          className={
+            wishlistProducts.includes(productData)
+              ? "fas fa-heart fa-lg"
+              : "far fa-heart fa-lg"
+          }
           style={{
-            color: "red",
+            color: wishlistProducts.includes(productData) ? "red" : "black",
             cursor: "pointer",
           }}
+          onClick={
+            wishlistProducts.includes(productData)
+              ? () => handlerRemoveFromWishlist(productData._id)
+              : () => handlerAddToWishlist(productData)
+          }
         />
       </button>
       <img className="image-responsive" src={image} alt={name} />
