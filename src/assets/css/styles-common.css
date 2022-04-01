@@ -146,6 +146,18 @@ i {
 
 /* **************************************************************************************************** */
 
+/* CART PAGE */
+
+.total-price,
+.total-discount,
+.delivery-charges,
+.effective-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* **************************************************************************************************** */
+
 /* PRODUCTS PAGE */
 
 .filter-header,

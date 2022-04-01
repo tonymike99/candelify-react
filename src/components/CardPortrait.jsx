@@ -1,3 +1,5 @@
+import { useCart } from "../hooks/context/index";
+
 function CardPortrait({ productData }) {
   const {
     name,
@@ -9,6 +11,29 @@ function CardPortrait({ productData }) {
     discountPercent,
     image,
   } = productData;
+  const { cartProducts, setCartProducts } = useCart();
+
+  const handlerAddToCart = (product) => {
+    // If product is there in cart, then update the quantity
+    const isProductAlreadyInCart = cartProducts.find((currentProduct) => {
+      if (currentProduct._id === product._id) {
+        currentProduct.quantity++;
+        return true;
+      }
+      return false;
+    });
+
+    // If product is not there in cart, then add the product to cart and update quantity to 1
+    if (!isProductAlreadyInCart) {
+      product.quantity = 1;
+      setCartProducts([...cartProducts, product]);
+    }
+  };
+
+  const handlerRemoveFromCart = (id) => {
+    // If product is there in cart, then remove product from cart
+    setCartProducts(cartProducts.filter((product) => product._id !== id));
+  };
 
   return (
     <div className="card relative text-center">
@@ -44,7 +69,22 @@ function CardPortrait({ productData }) {
         )}
       </div>
       <div className="card-footer">
-        <button className="btn btn-primary btn-width-100">Add to Cart</button>
+        <button
+          className={
+            cartProducts.includes(productData)
+              ? "btn btn-danger btn-width-100"
+              : "btn btn-primary btn-width-100"
+          }
+          onClick={
+            cartProducts.includes(productData)
+              ? () => handlerRemoveFromCart(productData._id)
+              : () => handlerAddToCart(productData)
+          }
+        >
+          {cartProducts.includes(productData)
+            ? "Remove from cart"
+            : "Add to cart"}
+        </button>
       </div>
     </div>
   );

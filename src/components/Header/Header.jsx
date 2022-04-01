@@ -1,7 +1,23 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
+import { useCart, useTheme } from "../../hooks/context/index";
 
 function Header() {
+  const { cartProducts } = useCart();
+  const { theme, setTheme } = useTheme();
+
+  // To handle theme button onClick
+  const handlerTheme = () => {
+    document.body.classList.toggle(theme);
+    setTheme(theme === "dark-theme" ? "light-theme" : "dark-theme");
+  };
+
+  // To calculate the number of cart products
+  let numberOfCartProducts = cartProducts.reduce(
+    (acc, cur) => (acc += cur.quantity),
+    0
+  );
+
   return (
     <header className="header">
       <div className="header-item">
@@ -26,7 +42,9 @@ function Header() {
           <li>
             <Link to="/cart" className="styled-link-2 relative">
               <i className="fas fa-shopping-cart fa-lg" />
-              <div className="badge primary badge-outside-top-right">0</div>
+              <div className="badge primary badge-outside-top-right">
+                {numberOfCartProducts}
+              </div>
             </Link>
           </li>
           <li>|</li>
@@ -41,8 +59,15 @@ function Header() {
             </a>
           </li>
           <li>
-            <Link to="#" className="styled-link-2">
-              <i className="fas fa-moon fa-lg" />
+            <Link to="#" className="styled-link-2" onClick={handlerTheme}>
+              <i
+                id="theme-icon"
+                className={
+                  theme === "dark-theme"
+                    ? "fas fa-sun fa-lg"
+                    : "fas fa-moon fa-lg"
+                }
+              />
             </Link>
           </li>
         </ul>
