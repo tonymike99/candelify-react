@@ -128,12 +128,18 @@ i {
   left: 46% !important;
 }
 
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* **************************************************************************************************** */
 
 /* LOGIN AND SIGNUP PAGES */
 
 .login-signup-section {
-  width: 20%;
+  width: 30rem;
   text-align: center;
   padding: 2rem;
 }
@@ -142,6 +148,14 @@ i {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 300px) {
+  .login-signup-section {
+    width: 100%;
+  }
 }
 
 /* **************************************************************************************************** */
@@ -154,6 +168,14 @@ i {
 .effective-price {
   display: flex;
   justify-content: space-between;
+}
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 720px) {
+  .flex-center {
+    align-items: center;
+  }
 }
 
 /* **************************************************************************************************** */
