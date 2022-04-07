@@ -41,3 +41,18 @@
 }
 
 /* HEADER STYLES END */
+
+/* **************************************************************************************************** */
+
+/* MEDIA QUERIES START */
+
+@media only screen and (max-width: 680px) {
+  .header {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* MEDIA QUERIES END */
+
+/* **************************************************************************************************** */

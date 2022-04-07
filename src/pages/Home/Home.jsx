@@ -39,7 +39,7 @@ function Home() {
         {error && <p className="text-bold text-center">{error.message}</p>}
 
         {!error && (
-          <section className={styles["categories"]}>
+          <section className="categories">
             {categories.map((category) => (
               <Link key={category._id} to="/products">
                 <CardCategory key={category._id} data={category} />
