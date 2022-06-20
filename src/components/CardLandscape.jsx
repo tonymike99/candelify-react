@@ -6,17 +6,12 @@ function CardLandscape({ data }) {
       <div className="card-left-content">
         <img className="image-responsive" src={src} alt={alt} />
       </div>
+
       <div className="card-right-content">
-        <div className="card-header">
-          <h2 className="text-bold">{title}</h2>
-          <small className="text-muted">{profession}</small>
-        </div>
-        <div className="card-body">
-          <small className="text-muted">{description}</small>
-        </div>
-        <div className="card-footer">
-          <button className="btn btn-primary">Read More</button>
-        </div>
+        <h3 className="h3">{title}</h3>
+        <small className="text-muted">{profession}</small>
+        <small className="text-muted">{description}</small>
+        <button className="btn btn-primary btn-width-100">Read More</button>
       </div>
     </div>
   );
