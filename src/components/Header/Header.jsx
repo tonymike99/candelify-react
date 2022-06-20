@@ -1,11 +1,13 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { useWishlist, useCart, useTheme } from "../../hooks/context/index";
+import { useTheme, useWishlist, useCart } from "../../hooks/context/index";
 
 function Header() {
+  const { theme, setTheme } = useTheme();
   const { wishlistProducts } = useWishlist();
   const { cartProducts } = useCart();
-  const { theme, setTheme } = useTheme();
+
+  /* **************************************************************************************************** */
 
   // To handle theme button onClick
   const handlerTheme = () => {
@@ -19,41 +21,41 @@ function Header() {
     0
   );
 
+  /* **************************************************************************************************** */
+
   return (
     <header className="header">
-      <div className="header-item">
-        <Link to="/" className="brand-name">
-          Candelify
-        </Link>
-      </div>
+      <Link to="/" className="brand-name">
+        Candelify
+      </Link>
 
-      <nav className="header-item">
-        <ul className="list list-spaced list-navbar">
+      <nav>
+        <ul className="list list-horizontal">
           <li>
-            <Link to="/login" className="styled-link-2">
+            <Link to="/login" className="styled-link">
               <i className="fas fa-user fa-lg" />
             </Link>
           </li>
-          <li>
-            <Link to="/wishlist" className="styled-link-2 relative">
+          <li className="relative">
+            <Link to="/wishlist" className="styled-link">
               <i className="fas fa-heart fa-lg" />
-              <div className="badge success badge-outside-top-right">
+              <span class="badge primary badge-sm badge-outside-top-right">
                 {wishlistProducts.length}
-              </div>
+              </span>
             </Link>
           </li>
-          <li>
-            <Link to="/cart" className="styled-link-2 relative">
+          <li className="relative">
+            <Link to="/cart" className="styled-link">
               <i className="fas fa-shopping-cart fa-lg" />
-              <div className="badge primary badge-outside-top-right">
+              <span class="badge primary badge-sm badge-outside-top-right">
                 {numberOfCartProducts}
-              </div>
+              </span>
             </Link>
           </li>
           <li>|</li>
           <li>
             <a
-              className="styled-link-2"
+              className="styled-link"
               href="https://github.com/tonymike99/candelify-react"
               target="_blank"
               rel="noreferrer"
@@ -62,7 +64,7 @@ function Header() {
             </a>
           </li>
           <li>
-            <Link to="#" className="styled-link-2" onClick={handlerTheme}>
+            <Link to="#" className="styled-link" onClick={handlerTheme}>
               <i
                 id="theme-icon"
                 className={
