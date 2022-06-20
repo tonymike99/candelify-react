@@ -15,22 +15,19 @@ function Wishlist() {
   return (
     <div className={styles["main-container"]}>
       <main className={styles.main}>
-        <section className="flex-center portrait-cards">
-          <div className="section-header">
-            <p className="text-bold text-center">
-              Showing {wishlistProducts.length} products
-            </p>
-          </div>
-          <div className="cards-portrait">
-            {wishlistProducts.length ? (
-              wishlistProducts.map((product) => (
-                <CardPortrait key={product._id} productData={product} />
-              ))
-            ) : (
-              <div> No products found!</div>
-            )}
-          </div>
-        </section>
+        <p className="text-bold text-center margin-bottom-2">
+          Showing {wishlistProducts.length} products
+        </p>
+
+        <div className="cards-wrapper">
+          {wishlistProducts.length ? (
+            wishlistProducts.map((product) => (
+              <CardPortrait key={product._id} productData={product} />
+            ))
+          ) : (
+            <div> No products found!</div>
+          )}
+        </div>
       </main>
     </div>
   );

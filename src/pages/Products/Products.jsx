@@ -26,7 +26,6 @@ function Products() {
 
   const params = {
     method: "get",
-    // baseURL: "http://localhost:3000",
     url: "/api/products",
   };
 
@@ -150,7 +149,6 @@ function Products() {
             <br />
             (Min Rs 0 and Max Rs 1000):
           </label>
-          <br />
           <input
             type="range"
             id="points"
@@ -177,8 +175,8 @@ function Products() {
           </datalist>
         </div>
 
-        <div className="filter-category">
-          <p className="text-bold">Category</p>
+        <div className="filter-categories">
+          <p className="text-bold">Categories</p>
           <div>
             <input
               type="checkbox"
@@ -333,17 +331,18 @@ function Products() {
       </aside>
 
       <main className={styles.main}>
-        {loading && <h1 className="text-center">Loading products...</h1>}
-        {error && <p className="text-bold text-center">{error.message}</p>}
+        <section>
+          {loading && <h3 className="h3 text-center">Loading products...</h3>}
+          {error && <p className="text-bold text-center">{error.message}</p>}
+        </section>
 
         {!error && (
-          <section className="flex-center portrait-cards">
-            <div className="section-header">
-              <p className="text-bold text-center">
-                Showing {filterProducts(products, filtersState).length} products
-              </p>
-            </div>
-            <div className="cards-portrait">
+          <section>
+            <p className="text-bold text-center margin-bottom-2">
+              Showing {filterProducts(products, filtersState).length} products
+            </p>
+
+            <div className="cards-wrapper">
               {filterProducts(products, filtersState).length ? (
                 filterProducts(products, filtersState).map((product) => (
                   <CardPortrait key={product._id} productData={product} />
