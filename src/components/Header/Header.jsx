@@ -32,6 +32,11 @@ function Header() {
       <nav>
         <ul className="list list-horizontal">
           <li>
+            <Link to="/" className="styled-link">
+              <i className="fas fa-home fa-lg" />
+            </Link>
+          </li>
+          <li>
             <Link to="/login" className="styled-link">
               <i className="fas fa-user fa-lg" />
             </Link>
@@ -39,7 +44,7 @@ function Header() {
           <li className="relative">
             <Link to="/wishlist" className="styled-link">
               <i className="fas fa-heart fa-lg" />
-              <span class="badge primary badge-sm badge-outside-top-right">
+              <span className="badge primary badge-sm badge-outside-top-right">
                 {wishlistProducts.length}
               </span>
             </Link>
@@ -47,7 +52,7 @@ function Header() {
           <li className="relative">
             <Link to="/cart" className="styled-link">
               <i className="fas fa-shopping-cart fa-lg" />
-              <span class="badge primary badge-sm badge-outside-top-right">
+              <span className="badge primary badge-sm badge-outside-top-right">
                 {numberOfCartProducts}
               </span>
             </Link>
