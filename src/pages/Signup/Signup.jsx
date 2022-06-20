@@ -10,17 +10,53 @@ function Signup() {
 
   return (
     <div className={styles["main-container"]}>
-      <main className={styles.main}>
-        <section className="login-signup-section">
-          <h2 className="font-montserrat margin-bottom-2">SIGN UP</h2>
-          <form className="form-spacing" action="#">
-            <input type="text" id="nameInput" placeholder="Name" />
-            <input type="tel" id="phoneInput" placeholder="Phone Number" />
-            <input type="email" id="emailInput" placeholder="Email Address" />
-            <input type="password" id="passwordInput" placeholder="Password" />
-            <button className="btn btn-primary btn-width-100" type="submit">
-              Sign up
-            </button>
+      <main className="main">
+        <section className="auth">
+          <h3 className="h3">SIGN UP</h3>
+
+          <form className="form" action="#">
+            <div className="form-control">
+              <input
+                type="text"
+                id="firstNameInput"
+                placeholder="First Name"
+                required
+              />
+            </div>
+
+            <div className="form-control">
+              <input
+                type="text"
+                id="lastNameInput"
+                placeholder="Last Name"
+                required
+              />
+            </div>
+
+            <div className="form-control">
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="Email Address"
+                required
+              />
+            </div>
+
+            <div className="form-control">
+              <input
+                type="password"
+                id="passwordInput"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <div className="form-control">
+              <button className="btn btn-primary btn-width-100" type="submit">
+                Sign up
+              </button>
+            </div>
+
             <small>
               Have an account?
               <Link to="/login" className="styled-link">

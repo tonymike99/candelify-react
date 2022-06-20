@@ -10,15 +10,35 @@ function Login() {
 
   return (
     <div className={styles["main-container"]}>
-      <main className={styles.main}>
-        <section className="login-signup-section">
-          <h2 className="font-montserrat margin-bottom-2">LOGIN</h2>
-          <form className="form-spacing" action="#">
-            <input type="email" id="emailInput" placeholder="Email Address" />
-            <input type="password" id="passwordInput" placeholder="Password" />
-            <button className="btn btn-primary btn-width-100" type="submit">
-              Login
-            </button>
+      <main className="main">
+        <section className="auth">
+          <h3 className="h3">LOGIN</h3>
+
+          <form className="form" action="#">
+            <div className="form-control">
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="Email Address"
+                required
+              />
+            </div>
+
+            <div className="form-control">
+              <input
+                type="password"
+                id="passwordInput"
+                placeholder="Password"
+                required
+              />
+            </div>
+
+            <div className="form-control">
+              <button className="btn btn-primary btn-width-100" type="submit">
+                Login
+              </button>
+            </div>
+
             <small>
               Don't have an account?
               <Link to="/signup" className="styled-link">
