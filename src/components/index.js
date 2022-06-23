@@ -5,4 +5,3 @@ export { CardLandscape } from "./CardLandscape";
 export { CardExtended } from "./CardExtended";
 export { CardPortrait } from "./CardPortrait";
 export { CartBillDetails } from "./CartBillDetails";
-export { Slideshow } from "./Slideshow";
