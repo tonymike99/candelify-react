@@ -20,13 +20,9 @@ function Wishlist() {
         </p>
 
         <div className="cards-wrapper">
-          {wishlistProducts.length ? (
-            wishlistProducts.map((product) => (
-              <CardPortrait key={product._id} productData={product} />
-            ))
-          ) : (
-            <div> No products found!</div>
-          )}
+          {wishlistProducts.map((product) => (
+            <CardPortrait key={product._id} productData={product} />
+          ))}
         </div>
       </main>
     </div>

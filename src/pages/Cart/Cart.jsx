@@ -25,13 +25,9 @@ function Cart() {
           </p>
 
           <div className="cards-wrapper cards-wrapper-column">
-            {cartProducts.length ? (
-              cartProducts.map((product) => (
-                <CardExtended key={product._id} productData={product} />
-              ))
-            ) : (
-              <div> No products found!</div>
-            )}
+            {cartProducts.map((product) => (
+              <CardExtended key={product._id} productData={product} />
+            ))}
           </div>
         </section>
       </main>
