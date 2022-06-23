@@ -57,7 +57,7 @@ function CardExtended({ productData }) {
         <img className="image-responsive" src={image} alt={name} />
       </div>
 
-      <div class="card-middle-content">
+      <div className="card-middle-content">
         <h4 className="h4">{name}</h4>
         <small className="text-bold">₹ {price}</small>
         <div>
