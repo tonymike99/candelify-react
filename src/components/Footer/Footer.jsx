@@ -103,6 +103,10 @@ function Footer() {
       </div>
 
       <small>No copyright © issues. Feel free to copy.</small>
+
+      <small>
+        <a href="https://storyset.com/web">Web illustrations by Storyset</a>
+      </small>
     </footer>
   );
 }
