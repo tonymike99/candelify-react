@@ -1,4 +1,4 @@
-import { useCart } from "../hooks/context/cart-context";
+import { useCart } from "../../hooks/context/cart-context";
 
 function CartBillDetails() {
   const { cartProducts } = useCart();

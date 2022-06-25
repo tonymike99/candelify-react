@@ -1,4 +1,4 @@
-import { useWishlist, useCart } from "../hooks/context/index";
+import { useWishlist, useCart } from "../../hooks/context/index";
 
 function CardPortrait({ productData }) {
   const {
