@@ -1,13 +1,24 @@
 import "./Header.css";
 import { Link } from "react-router-dom";
-import { useTheme, useWishlist, useCart } from "../../hooks/context/index";
+import {
+  useTheme,
+  useWishlist,
+  useCart,
+  useAuth,
+} from "../../hooks/context/index";
 
 function Header() {
   const { theme, setTheme } = useTheme();
   const { wishlistProducts } = useWishlist();
   const { cartProducts } = useCart();
+  const { encodedToken, logoutUserDetails } = useAuth();
 
   /* **************************************************************************************************** */
+
+  // To handle logout button onClick
+  const handlerLogout = () => {
+    logoutUserDetails();
+  };
 
   // To handle theme button onClick
   const handlerTheme = () => {
@@ -32,13 +43,19 @@ function Header() {
       <nav>
         <ul className="list list-horizontal">
           <li>
-            <Link to="/" className="styled-link">
-              <i className="fas fa-home fa-lg" />
-            </Link>
+            {encodedToken ? (
+              <Link to="/" className="styled-link" onClick={handlerLogout}>
+                Logout <i className="fa-solid fa-right-from-bracket fa-lg"></i>
+              </Link>
+            ) : (
+              <Link to="/login" className="styled-link">
+                Login <i className="fas fa-user fa-lg" />
+              </Link>
+            )}
           </li>
           <li>
-            <Link to="/login" className="styled-link">
-              <i className="fas fa-user fa-lg" />
+            <Link to="/" className="styled-link">
+              <i className="fas fa-home fa-lg" />
             </Link>
           </li>
           <li className="relative">
