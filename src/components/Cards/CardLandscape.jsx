@@ -9,8 +9,8 @@ function CardLandscape({ data }) {
 
       <div className="card-right-content">
         <h3 className="h3">{title}</h3>
-        <small className="text-muted">{profession}</small>
-        <small className="text-muted">{description}</small>
+        <small>{profession}</small>
+        <small className="text-grey">{description}</small>
         <button className="btn btn-primary btn-width-100">Read More</button>
       </div>
     </div>

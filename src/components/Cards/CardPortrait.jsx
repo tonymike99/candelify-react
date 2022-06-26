@@ -96,14 +96,14 @@ function CardPortrait({ productData }) {
         </div>
         <small className="text-bold">⭐ {ratings}/5</small>
         {inStock ? (
-          <small className="text-muted"> In Stock </small>
+          <small> In Stock </small>
         ) : (
-          <small> Out of Stock </small>
+          <small className="text-grey"> Out of Stock </small>
         )}
         {fastDelivery ? (
-          <small className="text-muted"> Fast Delivery </small>
+          <small> Fast Delivery </small>
         ) : (
-          <small> 3 days minimum </small>
+          <small className="text-grey"> 3 days minimum </small>
         )}
       </div>
 
