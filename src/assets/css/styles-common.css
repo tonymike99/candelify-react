@@ -185,13 +185,3 @@ i {
 }
 
 /* **************************************************************************************************** */
-
-/* remove */
-
-input[type="text"],
-input[type="tel"],
-input[type="email"],
-input[type="password"] {
-  width: 100% !important;
-  background-color: none;
-}
