@@ -8,6 +8,7 @@ import {
   WishlistProvider,
   CartProvider,
   ThemeProvider,
+  AuthProvider,
 } from "./hooks/context/index";
 
 // Call make Server
@@ -17,13 +18,15 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <ThemeProvider>
-        <FilterProvider>
-          <WishlistProvider>
-            <CartProvider>
-              <App />
-            </CartProvider>
-          </WishlistProvider>
-        </FilterProvider>
+        <AuthProvider>
+          <FilterProvider>
+            <WishlistProvider>
+              <CartProvider>
+                <App />
+              </CartProvider>
+            </WishlistProvider>
+          </FilterProvider>
+        </AuthProvider>
       </ThemeProvider>
     </BrowserRouter>
   </React.StrictMode>,
