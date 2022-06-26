@@ -61,7 +61,7 @@ function Header() {
           <li className="relative">
             <Link to="/wishlist" className="styled-link">
               <i className="fas fa-heart fa-lg" />
-              <span className="badge primary badge-sm badge-outside-top-right">
+              <span className="badge primary badge-sm badge-top-right">
                 {wishlistProducts.length}
               </span>
             </Link>
@@ -69,7 +69,7 @@ function Header() {
           <li className="relative">
             <Link to="/cart" className="styled-link">
               <i className="fas fa-shopping-cart fa-lg" />
-              <span className="badge primary badge-sm badge-outside-top-right">
+              <span className="badge primary badge-sm badge-top-right">
                 {numberOfCartProducts}
               </span>
             </Link>
