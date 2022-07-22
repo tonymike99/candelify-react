@@ -1,5 +1,5 @@
 import styles from "./Cart.module.css";
-import { CardStretched, CartBillDetails } from "../../components/index";
+import { CardExtended, CartBillDetails } from "../../components/index";
 import { useCart } from "../../hooks/context/index";
 import { useDocumentTitle } from "../../hooks/custom/index";
 
@@ -19,18 +19,16 @@ function Cart() {
       </aside>
 
       <main className={styles.main}>
-        <section className="flex-center">
-          <div className="section-header">
-            <p className="text-bold">Showing {cartProducts.length} products</p>
-          </div>
+        <section>
+          <p className="text-bold text-center margin-bottom-2">
+            Showing {cartProducts.length} products
+          </p>
 
-          {cartProducts.length ? (
-            cartProducts.map((product) => (
-              <CardStretched key={product._id} productData={product} />
-            ))
-          ) : (
-            <div> No products found!</div>
-          )}
+          <div className="cards-wrapper cards-wrapper-column">
+            {cartProducts.map((product) => (
+              <CardExtended key={product._id} productData={product} />
+            ))}
+          </div>
         </section>
       </main>
     </div>

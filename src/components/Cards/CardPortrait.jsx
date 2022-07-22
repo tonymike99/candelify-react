@@ -1,4 +1,4 @@
-import { useWishlist, useCart } from "../hooks/context/index";
+import { useWishlist, useCart } from "../../hooks/context/index";
 
 function CardPortrait({ productData }) {
   const {
@@ -13,6 +13,8 @@ function CardPortrait({ productData }) {
   } = productData;
   const { wishlistProducts, setWishlistProducts } = useWishlist();
   const { cartProducts, setCartProducts } = useCart();
+
+  // ****************************************************************************************************
 
   const handlerAddToWishlist = (product) => {
     // If product is not there in wishlist, then add product to wishlist
@@ -58,54 +60,59 @@ function CardPortrait({ productData }) {
     setCartProducts(cartProducts.filter((product) => product._id !== id));
   };
 
+  // ****************************************************************************************************
+
   return (
-    <div className="card relative text-center">
-      <button className="btn round btn-light btn-floating badge badge-lg badge-inside-top-right">
-        <i
-          className={
-            wishlistProducts.includes(productData)
-              ? "fas fa-heart fa-lg"
-              : "far fa-heart fa-lg"
-          }
-          style={{
-            color: wishlistProducts.includes(productData) ? "red" : "black",
-            cursor: "pointer",
-          }}
+    <div className="card">
+      <div className="relative">
+        <button
+          className="pointer btn round btn-light btn-floating badge badge-inside-top-right"
           onClick={
             wishlistProducts.includes(productData)
               ? () => handlerRemoveFromWishlist(productData._id)
               : () => handlerAddToWishlist(productData)
           }
-        />
-      </button>
-      <img className="image-responsive" src={image} alt={name} />
-      <div className="card-header">
-        <small className="text-muted">{name}</small>
+        >
+          <i
+            className={
+              wishlistProducts.includes(productData)
+                ? "fas fa-heart fa-lg"
+                : "far fa-heart fa-lg"
+            }
+            style={{
+              color: wishlistProducts.includes(productData) ? "red" : "black",
+            }}
+          />
+        </button>
+        <img className="image-responsive" src={image} alt={name} />
       </div>
+
       <div className="card-body">
-        <h3 className="text-bold">₹ {price}</h3>
-        <small>
-          <span className="text-strikethrough">₹ {oldPrice}</span>{" "}
-          <span className="text-bold">{discountPercent}% off</span>
-        </small>
-        <p className="text-muted">⭐ {ratings}/5 ⭐</p>
+        <h4 className="h4">{name}</h4>
+        <small className="text-bold">₹ {price}</small>
+        <div>
+          <small className="text-strikethrough">₹ {oldPrice}</small>{" "}
+          <small className="text-bold">{discountPercent}% off</small>
+        </div>
+        <small className="text-bold">⭐ {ratings}/5</small>
         {inStock ? (
-          <small className="text-muted"> In Stock </small>
+          <small> In Stock </small>
         ) : (
-          <small> Out of Stock </small>
+          <small className="text-grey"> Out of Stock </small>
         )}
         {fastDelivery ? (
-          <small className="text-muted"> Fast Delivery </small>
+          <small> Fast Delivery </small>
         ) : (
-          <small> 3 days minimum </small>
+          <small className="text-grey"> 3 days minimum </small>
         )}
       </div>
+
       <div className="card-footer">
         <button
           className={
             cartProducts.includes(productData)
-              ? "btn btn-danger btn-width-100"
-              : "btn btn-primary btn-width-100"
+              ? "pointer btn btn-danger btn-width-100"
+              : "pointer btn btn-primary btn-width-100"
           }
           onClick={
             cartProducts.includes(productData)
