@@ -1,5 +1,5 @@
-# [Candelify](https://candelify-react.netlify.app/)
+# [MikeyCart](https://mikey-cart.netlify.app/)
 
 ## Introduction
 
-Candelify is a one-stop portal for all your fashion needs.
+MikeyCart is a one-stop portal for all your fashion needs.

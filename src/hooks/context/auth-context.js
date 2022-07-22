@@ -12,7 +12,7 @@ const AuthProvider = ({ children }) => {
   // ****************************************************************************************************
 
   useEffect(() => {
-    const localToken = localStorage.getItem("candelify-jwt-token");
+    const localToken = localStorage.getItem("mikey-cart-jwt-token");
 
     if (localToken) {
       verifyJwtTokenOnPageRefresh(localToken);
@@ -35,7 +35,7 @@ const AuthProvider = ({ children }) => {
         setUserDetails(loginResponse.data.foundUser);
         setEncodedToken(loginResponse.data.encodedToken);
         localStorage.setItem(
-          "candelify-jwt-token",
+          "mikey-cart-jwt-token",
           loginResponse.data.encodedToken
         );
       }
@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
         setUserDetails(signupResponse.data.createdUser);
         setEncodedToken(signupResponse.data.encodedToken);
         localStorage.setItem(
-          "candelify-jwt-token",
+          "mikey-cart-jwt-token",
           signupResponse.data.encodedToken
         );
       }
@@ -70,7 +70,7 @@ const AuthProvider = ({ children }) => {
   const logoutUserDetails = () => {
     setUserDetails(null);
     setEncodedToken(null);
-    localStorage.removeItem("candelify-jwt-token");
+    localStorage.removeItem("mikey-cart-jwt-token");
     localStorage.removeItem("storedFilters");
     localStorage.removeItem("storedWishlistProducts");
     localStorage.removeItem("storedCartProducts");

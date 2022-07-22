@@ -37,7 +37,7 @@ function Header() {
   return (
     <header className="header">
       <Link to="/" className="brand-name">
-        Candelify
+        MikeyCart
       </Link>
 
       <nav>
@@ -78,7 +78,7 @@ function Header() {
           <li>
             <a
               className="styled-link"
-              href="https://github.com/tonymike99/candelify-react"
+              href="https://github.com/tonymike99/mikey-cart"
               target="_blank"
               rel="noreferrer"
             >
